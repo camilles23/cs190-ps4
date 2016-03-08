@@ -37,7 +37,8 @@ func anyPower(n: Int) -> (Int->Int) {
 }
 
 func raiseArrayToPower(n: Int, arrayOfInts: [Int]) -> [Int] {
-    return [1, 5] // a meaningless hard-coded implementation for you to replace with an actual implementation
+    // return [1, 5] // a meaningless hard-coded implementation for you to replace with an actual implementation
+    return arrayOfInts.map(anyPower(n))
 }
 
 /*:
@@ -46,8 +47,11 @@ func raiseArrayToPower(n: Int, arrayOfInts: [Int]) -> [Int] {
 Implement the following function using filter. When you have it implemented right, the two Part 2 unit tests will pass.
 */
 
+
+
 func keepOnlyEvenValues(arrayOfInts: [Int]) -> [Int] {
-    return [1, 5] // a meaningless hard-coded implementation for you to replace with an actual implementation
+    // return [1, 5] // a meaningless hard-coded implementation for you to replace with an actual implementation
+    return arrayOfInts.filter { $0 % 2 == 0}
 }
 
 /*:
@@ -68,8 +72,14 @@ let thisMonthsRentals = [
 ]
 
 func totalRentalHours(rentals: [CarRental]) -> Double {
-    return 5.0 // a meaningless hard-coded implementation for you to replace with an actual implementation
+    // return 5.0 // a meaningless hard-coded implementation for you to replace with an actual implementation
+    var total = 0.0
+    total = rentals.reduce(0.0) {total, rental in total + rental.hours}
+    return total
 }
+
+
+
 
 import XCTest
 
